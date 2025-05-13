@@ -29,7 +29,7 @@ function Card({ data, type }) {
     }
 
     case "song": {
-      const { image, likes, title, songs } = data;
+      const { image, likes, title } = data;
       return (
         // no tooltip required here according to figma provided
         <div className={styles.wrapper}>
