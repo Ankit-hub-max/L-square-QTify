@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 import styles from "./Carousel.module.css";
 
 //No use for this currently 
-import { Navigation } from 'swiper/modules';
+import { Virtual,Navigation } from 'swiper/modules';
 
 
 const Controls=({data})=>{
@@ -20,7 +20,8 @@ const Controls=({data})=>{
     useEffect(()=>{
         //swiper.slideTo(index, speed, runCallbacks(optional))
         swiper.slideTo(0,1)
-    },[data,swiper])
+    },[data,swiper]);
+    
 
     return <>
     
@@ -34,9 +35,10 @@ const Carousel = ({data,renderCardComponent}) => {
     <Swiper
         initialSlide={0}
         spaceBetween={40}
-        slidesPerView={"auto"}
+        slidesPerView={4}
          // The Pagination module from Swiper.js is explicitly imported and passed to the modules prop of the Swiper component.
-         modules={[Navigation]}
+         modules={[Navigation,Virtual]}
+         virtual
          allowTouchMove
         >
         <Controls data={data}/>
@@ -45,7 +47,7 @@ const Carousel = ({data,renderCardComponent}) => {
          {/* since we need to show the cards of album inside the section, hence use SwiperSlide inside map on data array */}
       {data.map((item, index) => (
          // renderCardComponent is using the card component in it to show cards, see in section component
-        <SwiperSlide key={index}>{renderCardComponent(item)}</SwiperSlide>
+        <SwiperSlide key={item.id} virtualIndex={index}>{renderCardComponent(item)}</SwiperSlide>
       ))}
        
     </Swiper>
