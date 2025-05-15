@@ -19,7 +19,10 @@ const CarouselLeft = () => {
   return (
     <div className={styles.leftNavigation}>
       {/* don't show left arrow when we are on the left most card */}
-      {!isBeginning && <LeftArrow onClick={()=>swiper.slidePrev()}/>}
+      {!isBeginning && (<LeftArrow onClick={()=>swiper.slidePrev()}
+        data-testid="carousel-left-button"
+        />
+      )}
     </div>
   )
 }

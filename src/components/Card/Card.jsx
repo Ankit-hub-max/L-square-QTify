@@ -9,7 +9,7 @@ function Card({ data, type }) {
       return (
         // "?." operator will give null if the value before ?. is undefined
         <Tooltip title={`${songs?.length} songs`} placement="top" arrow>
-          <div className={styles.wrapper}>
+          <div className={styles.wrapper} data-testid="album-card">
             <div className={styles.card}>
               <img src={image} alt="album" />
               <div className={styles.banner}>
@@ -32,7 +32,7 @@ function Card({ data, type }) {
       const { image, likes, title } = data;
       return (
         // no tooltip required here according to figma provided
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} data-testid="song-card">
           <div className={styles.card}>
             <img src={image} alt="album" loading="lazy" />
             <div className={styles.banner}>

@@ -19,7 +19,11 @@ const CarouselRight = () => {
   return (
     <div className={styles.rightNavigation}>
       {/* don't show Right arrow when we are on the Right most card */}
-      {!isEnd && <RightArrow onClick={()=>swiper.slideNext()}/>}
+      {!isEnd && (
+        <RightArrow onClick={()=>swiper.slideNext()}
+      data-testid="carousel-right-button"
+        />
+      )}
     </div>
   )
 }

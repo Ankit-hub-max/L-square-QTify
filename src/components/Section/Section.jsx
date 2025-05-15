@@ -23,7 +23,9 @@ const Section=({type,title,data,toggle=true})=> {
      {/* small top div with Name of section and "show all/collepse all" button */}
         <div className={styles.sectionTop}>
             <h3>{title}</h3>
-            <h4 onClick={handleToggle} className={styles.toggleText}>
+            <h4 onClick={handleToggle} className={styles.toggleText}
+             data-testid={`${title.toLowerCase().replace(/\s/g, '-')}-toggle`}
+             >
 
             {/*  check if we want to show the show/collapse button or not */}
             {toggle?(
@@ -38,7 +40,7 @@ const Section=({type,title,data,toggle=true})=> {
             <div className={styles.sectionInnerWrapper}>
              {/* here, if carouselToggle is false then show first condition here(means "show all albums"), else show second (means show "Collpased view with corousel")*/}
             {!carouselToggle?(
-                <div className={styles.showAllWrapper}>
+                <div className={styles.showAllWrapper} data-testid={`${title.toLowerCase().replace(/\s/g, '_')}-cards`}>
                 {data.map((album)=>(
                     //show card here
                     <Card data={album} type={type} key={album.id}/>
