@@ -4,3 +4,9 @@
   background: #121212; /* Dark theme for music app */
   color: white;
 }
+
+.sectionWrapper {
+  padding: 16px;
+  margin-top: 24px;
+}
+
